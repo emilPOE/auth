@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Login</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<!-- NAVBAR -->
+<ul id="navbar">
+    <li class="navlink-right"><a href="/register">Register</a></li>
+</ul>
+<!-- FLASH ERROR MESSAGES -->
+<div class=alert-cont>
+    <% if(errors != "") { %>
+        <% errors.forEach((item) => { %>
+            <div class="alert">
+                <%- item %>
+            </div>
+        <% }); %>
+    <% } %>
+</div>
+<div class="main-cont">
+    <!-- LOGIN FORM -->
+    <form id="login-form" action="/login" method="post">
+        <div class="break"></div>
+        <h2>Login To Your Account</h2>
+        <input class="login-input" type="text" id="email" name="email" placeholder="Email" required><br>
+        <input class="login-input" type="password" id="password" name="password" placeholder="Password" required><br>
+        <a class="subscript" href="#">Forgotten your password?</a><br>
+        <div class="break"></div>
+        <input class="submit-btn" type="submit" value="Submit">
+        <div class="break"></div>
+    </form> 
+</div>
+</body>
+</html>

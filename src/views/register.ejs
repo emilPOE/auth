@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Register</title>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<!-- NAVBAR -->
+<ul id="navbar">
+    <li class="navlink-right"><a href="/login">Login</a></li>
+</ul>
+<!-- FLASH ERROR MESSAGES -->
+<div class=alert-cont>
+    <% if(errors != "") { %>
+        <% errors.forEach((item) => { %>
+            <div class="alert">
+                <%- item %>
+            </div>
+        <% }); %>
+    <% } %>
+</div>
+<div class="main-cont">
+    <!-- REG FORM -->
+    <form id="reg-form" action="/register" method="post">
+        <div class="break"></div>
+        <h2>Register A New Account</h2>
+        <input class="login-input" type="text" id="username" name="username" placeholder="Enter A Username"><br>
+        <input class="login-input" type="text" id="email" name="email" placeholder="Enter An Email" required><br>
+        <input class="login-input" type="password" id="password" name="password" placeholder="Enter A Password" required><br>
+        <input class="login-input" type="password" id="passwordConfirmation" name="passwordConfirmation" placeholder="Confirm Password" required><br>
+        <div class="break"></div>
+        <input class="submit-btn" type="submit" value="Submit">
+        <div class="break"></div>
+    </form> 
+</div>
+</body>
+</html>
+
