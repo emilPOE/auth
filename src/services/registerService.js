@@ -6,34 +6,24 @@ let createNewUser = (data) => {
         // CHECK IF EMAIL ALREADY EXISTS
         let isEmailExist = await checkExistEmail(data.email);
         if (isEmailExist) {
-            reject(`This email "${data.email}" has already exist. Please choose an other email`)
-            console.log(`This email "${data.email}" has already exist. Please choose an other email`);
+            reject(`This email "${data.email}" has already exist. Please choose an other email`);
         } else {
             // HASH PASSSWORD
             let salt = bcrypt.genSaltSync(10);
-            var password = data.password
-            console.log(password)
             let userItem = {
                 username: data.username,
                 email: data.email,
                 password: bcrypt.hashSync(data.password, salt),
             };
 
-
             //CREATE
-            //INSERT INTO `users` (`username`, `email`, `password`) VALUES ('?', '?', '?'), [username, email, password]
-
-            //'SELECT * FROM `table` WHERE `name` = ? AND `age` > ?',
-            //['Page', 45],
-            DBConnection.query( 
-                'INSERT INTO users set ? ', userItem,
+            DBConnection.query(
+                ' INSERT INTO users set ? ', userItem,
                 function(err, rows) {
                     if (err) {
                         reject(false)
                     }
-                    resolve("Create a new user successful")
-                    console.log("Create a new user successful");
-                    console.log(userItem)
+                    resolve("Create a new user successful");
                 }
             );
         }
