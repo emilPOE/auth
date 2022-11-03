@@ -12,6 +12,10 @@ let router = express.Router();
 
 let initWebRoutes = (app) => {
     router.get("/", loginController.checkLoggedIn, homePageController.handleHomepage);
+    router.get("/handlePlay", loginController.checkLoggedIn, homePageController.handlePlay);
+    router.get("/handleIndex", loginController.checkLoggedIn, homePageController.handleIndex);
+    router.get("/handleCreateRoom", loginController.checkLoggedIn, homePageController.handleCreateRoom);
+    router.get("/handleRoom", loginController.checkLoggedIn, homePageController.handleRoom);
     router.get("/login", loginController.checkLoggedOut, loginController.getPageLogin);
     router.post("/login", passport.authenticate("local", {
         successRedirect: "/",

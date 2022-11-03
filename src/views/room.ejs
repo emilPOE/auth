@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        const ROOM_ID = "<%= roomId %>";
+
+    </script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <script src="js/index2.js" defer></script>
+    <title>Playing </title>
+</head>
+
+<body>
+    <div class="start-screen">
+        <h1>Split or Steal</h1>
+
+        <div class="wait-message" id="wait-message">
+            <p>Waiting for another player to join...</p>
+        </div>
+
+        <div class="connected-players">
+            <div class="player">
+                <span class="dot" id="player-1"></span> <span id="player-1-tag"></span>
+            </div>
+
+            <div class="player">
+                <span class="dot" id="player-2"></span> <span id="player-2-tag"></span>
+            </div>
+        </div>
+        <div id="video-grid"></div>
+        <a href="/">back</a>
+        <center>
+            <h3>
+                <div>Pot</div>
+                <div id="pot">0</div>
+
+            </h3>
+        </center>
+        <div class="choices">
+            <div class="choice" >
+                <button type="button" id="split" class="btn btn-success">Split</button>
+            </div>
+            <div class="choice" >
+                <button type="button" id="steal" class="btn btn-danger">Steal</button>
+            </div>
+        </div>
+
+
+        <div class="score">
+            <span>You: <span id="my-score">0</span></span>
+            <span>Enemy: <span id="enemy-score">0</span></span>
+        </div>
+
+        <div class="message-after-choice-selection" id="win-message">
+        </div>
+    </div>
+</body>
+
+</html>
